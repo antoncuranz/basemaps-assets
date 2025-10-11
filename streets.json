@@ -297,7 +297,8 @@
         "aerodrome"
       ],
       "paint": {
-        "fill-color": "#dadbdf"
+        "fill-color": "#ADC4E8",
+        "fill-opacity": 0.3
       }
     },
     {
@@ -311,7 +312,7 @@
         "runway"
       ],
       "paint": {
-        "line-color": "#e9e9ed",
+        "line-color": "#CDD5EF",
         "line-width": [
           "interpolate",
           [
@@ -321,12 +322,16 @@
           [
             "zoom"
           ],
-          10,
+          5,
           0,
+          6,
+          1,
           12,
           4,
           18,
-          30
+          100,
+          20,
+          200
         ]
       }
     },
@@ -342,7 +347,7 @@
         "taxiway"
       ],
       "paint": {
-        "line-color": "#e9e9ed",
+        "line-color": "#CDD5EF",
         "line-width": [
           "interpolate",
           [
@@ -352,12 +357,20 @@
           [
             "zoom"
           ],
-          13,
+          9,
           0,
-          13.5,
+          10,
           1,
-          15,
-          6
+          14,
+          4,
+          16,
+          6,
+          18,
+          28,
+          19,
+          64,
+          20,
+          130
         ]
       }
     },
@@ -376,7 +389,7 @@
         ]
       ],
       "paint": {
-        "fill-color": "#e9e9ed"
+        "fill-color": "#CDD5EF"
       }
     },
     {
@@ -948,40 +961,6 @@
           80,
           20,
           160
-        ]
-      }
-    },
-    {
-      "id": "buildings:outline",
-      "type": "fill",
-      "source": "protomaps",
-      "source-layer": "buildings",
-      "filter": [
-        "in",
-        "kind",
-        "building",
-        "building_part"
-      ],
-      "paint": {
-        "fill-color": "#DFDBD7"
-      }
-    },
-    {
-      "id": "buildings",
-      "type": "fill",
-      "source": "protomaps",
-      "source-layer": "buildings",
-      "filter": [
-        "in",
-        "kind",
-        "building",
-        "building_part"
-      ],
-      "paint": {
-        "fill-color": "#F2EAE2",
-        "fill-translate": [
-          -2,
-          -4
         ]
       }
     },
@@ -1716,108 +1695,6 @@
       }
     },
     {
-      "id": "boundaries_country",
-      "type": "line",
-      "source": "protomaps",
-      "source-layer": "boundaries",
-      "filter": [
-        "<=",
-        "kind_detail",
-        2
-      ],
-      "paint": {
-        "line-color": "#E09CA0",
-        "line-width": [
-          "interpolate",
-          [
-            "exponential",
-            1.6
-          ],
-          [
-            "zoom"
-          ],
-          2,
-          0,
-          3,
-          1,
-          10,
-          4
-        ],
-        "line-dasharray": [
-          "step",
-          [
-            "zoom"
-          ],
-          [
-            "literal",
-            [
-              2,
-              0
-            ]
-          ],
-          4,
-          [
-            "literal",
-            [
-              2,
-              1
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "id": "boundaries",
-      "type": "line",
-      "source": "protomaps",
-      "source-layer": "boundaries",
-      "filter": [
-        ">",
-        "kind_detail",
-        2
-      ],
-      "paint": {
-        "line-color": "#E09CA0",
-        "line-width": [
-          "interpolate",
-          [
-            "exponential",
-            1.6
-          ],
-          [
-            "zoom"
-          ],
-          7,
-          0,
-          8,
-          1,
-          10,
-          2
-        ],
-        "line-dasharray": [
-          "step",
-          [
-            "zoom"
-          ],
-          [
-            "literal",
-            [
-              2,
-              0
-            ]
-          ],
-          4,
-          [
-            "literal",
-            [
-              2,
-              1
-            ]
-          ]
-        ]
-      }
-    },
-    {
       "id": "roads_bridges_other_casing",
       "type": "line",
       "source": "protomaps",
@@ -2268,6 +2145,163 @@
           5,
           18,
           15
+        ]
+      }
+    },
+    {
+      "id": "roads_oneway",
+      "type": "symbol",
+      "source": "protomaps",
+      "source-layer": "roads",
+      "minzoom": 16,
+      "filter": [
+        "==",
+        [
+          "get",
+          "oneway"
+        ],
+        "yes"
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "icon-image": "arrow",
+        "icon-rotate": 90,
+        "symbol-spacing": 100
+      }
+    },
+    {
+      "id": "buildings:outline",
+      "type": "fill",
+      "source": "protomaps",
+      "source-layer": "buildings",
+      "filter": [
+        "in",
+        "kind",
+        "building",
+        "building_part"
+      ],
+      "paint": {
+        "fill-color": "#DFDBD7"
+      }
+    },
+    {
+      "id": "buildings",
+      "type": "fill",
+      "source": "protomaps",
+      "source-layer": "buildings",
+      "filter": [
+        "in",
+        "kind",
+        "building",
+        "building_part"
+      ],
+      "paint": {
+        "fill-color": "#F2EAE2",
+        "fill-translate": [
+          -2,
+          -4
+        ]
+      }
+    },
+    {
+      "id": "boundaries_country",
+      "type": "line",
+      "source": "protomaps",
+      "source-layer": "boundaries",
+      "filter": [
+        "<=",
+        "kind_detail",
+        2
+      ],
+      "paint": {
+        "line-color": "#E09CA0",
+        "line-width": [
+          "interpolate",
+          [
+            "exponential",
+            1.6
+          ],
+          [
+            "zoom"
+          ],
+          2,
+          0,
+          3,
+          1,
+          10,
+          4
+        ],
+        "line-dasharray": [
+          "step",
+          [
+            "zoom"
+          ],
+          [
+            "literal",
+            [
+              2,
+              0
+            ]
+          ],
+          4,
+          [
+            "literal",
+            [
+              2,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "id": "boundaries",
+      "type": "line",
+      "source": "protomaps",
+      "source-layer": "boundaries",
+      "filter": [
+        ">",
+        "kind_detail",
+        2
+      ],
+      "paint": {
+        "line-color": "#E09CA0",
+        "line-width": [
+          "interpolate",
+          [
+            "exponential",
+            1.6
+          ],
+          [
+            "zoom"
+          ],
+          7,
+          0,
+          8,
+          1,
+          10,
+          2
+        ],
+        "line-dasharray": [
+          "step",
+          [
+            "zoom"
+          ],
+          [
+            "literal",
+            [
+              2,
+              0
+            ]
+          ],
+          4,
+          [
+            "literal",
+            [
+              2,
+              1
+            ]
+          ]
         ]
       }
     },
@@ -3193,27 +3227,6 @@
         "text-color": "#728dd4",
         "text-halo-color": "#8ad7fe",
         "text-halo-width": 1
-      }
-    },
-    {
-      "id": "roads_oneway",
-      "type": "symbol",
-      "source": "protomaps",
-      "source-layer": "roads",
-      "minzoom": 16,
-      "filter": [
-        "==",
-        [
-          "get",
-          "oneway"
-        ],
-        "yes"
-      ],
-      "layout": {
-        "symbol-placement": "line",
-        "icon-image": "arrow",
-        "icon-rotate": 90,
-        "symbol-spacing": 100
       }
     },
     {
@@ -7752,7 +7765,6 @@
               "peak",
               "zoo",
               "garden",
-              "bench",
               "aerodrome",
               "station",
               "bus_stop",
@@ -7762,8 +7774,9 @@
               "library",
               "school",
               "animal",
-              "toilets",
-              "drinking_water"
+              "drinking_water",
+              "attraction",
+              "viewpoint"
             ]
           ]
         ],
@@ -8749,7 +8762,9 @@
                 "school",
                 "animal",
                 "toilets",
-                "drinking_water"
+                "drinking_water",
+                "attraction",
+                "viewpoint"
               ]
             ]
           ],
