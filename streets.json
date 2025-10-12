@@ -7776,7 +7776,8 @@
               "animal",
               "drinking_water",
               "attraction",
-              "viewpoint"
+              "viewpoint",
+              "camp_site"
             ]
           ]
         ],
@@ -8725,7 +8726,8 @@
                 "peak",
                 "zoo",
                 "garden",
-                "bench"
+                "bench",
+                "camp_site"
               ]
             ]
           ],
