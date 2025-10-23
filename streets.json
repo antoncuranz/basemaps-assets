@@ -10665,19 +10665,7 @@
           [
             "zoom"
           ],
-          [
-            "case",
-            [
-              "==",
-              [
-                "get",
-                "capital"
-              ],
-              "yes"
-            ],
-            "capital",
-            "townspot"
-          ],
+          "townspot",
           8,
           ""
         ],
